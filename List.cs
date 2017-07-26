@@ -7,7 +7,8 @@ using System.Web;
 namespace ToDo
 {
     public class List
-    {
+    { 
+        //CANNOT create new property here after controllers are made (scaffolded)
         [Key]
         public int ListID { get; set; }
         public string ListTitle { get; set; }

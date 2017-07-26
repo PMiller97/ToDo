@@ -16,13 +16,14 @@ namespace ToDo.Controllers
         private ToDoContext db = new ToDoContext();
 
         // GET: Lists
-        public ActionResult Index()
+        public ActionResult Index() //generating a view that is a list of my Lists
         {
-            return View(db.Lists.ToList());
+            return View(db.Lists.ToList());//^^^
         }
 
         // GET: Lists/Details/5
-        public ActionResult Details(int? id)
+        public ActionResult Details(int? id) //ActionResult is a data type (ex. string). Most likely will never create own
+            //? after int means it is null, ex. if "" is null.. return this ""
         {
             if (id == null)
             {
@@ -37,7 +38,7 @@ namespace ToDo.Controllers
         }
 
         // GET: Lists/Create
-        public ActionResult Create()
+        public ActionResult Create() //returning a view called "Create"
         {
             return View();
         }
@@ -51,6 +52,7 @@ namespace ToDo.Controllers
         {
             if (ModelState.IsValid)
             {
+                list.ListCreateDate = DateTime.Now.Date; // will have current date
                 db.Lists.Add(list);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -90,7 +92,8 @@ namespace ToDo.Controllers
             return View(list);
         }
 
-        // GET: Lists/Delete/5
+        // GET: Lists/Delete/5 
+        //5 is the ID, why? So i know which one to delete
         public ActionResult Delete(int? id)
         {
             if (id == null)

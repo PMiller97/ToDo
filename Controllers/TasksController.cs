@@ -129,5 +129,11 @@ namespace ToDo.Controllers
             }
             base.Dispose(disposing);
         }
+
+        public ActionResult Reminders()
+        {
+            var tasks = db.Tasks.Include(t => t.List);
+            return View(tasks.ToList());
+        }
     }
 }

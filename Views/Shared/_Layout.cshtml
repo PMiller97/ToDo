@@ -18,13 +18,16 @@
                 </button>
                 @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+
+        <div class="navbar-collapse collapse">
+               <ul class="nav navbar-nav">
+                    @*first one, link text..second one, which view it goes to..third one, which controller we use*@
+                    <li>@Html.ActionLink("Tasks", "Index", "Tasks")</li>
+                    <li>@Html.ActionLink("Create Task", "Create", "Tasks")</li>
+                    <li>@Html.ActionLink("Lists", "Index", "Lists")</li>
                 </ul>
-            </div>
+        </div>
+
         </div>
     </div>
     <div class="container body-content">
